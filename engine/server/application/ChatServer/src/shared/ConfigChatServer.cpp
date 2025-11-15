@@ -77,7 +77,7 @@ void ConfigChatServer::install(void)
 	KEY_INT    (backupGatewayServerPort, 15150);
 	KEY_STRING (clusterName, "devcluster");
 	KEY_STRING (centralServerAddress, "localhost");
-	KEY_INT    (centralServerPort, 61232);
+	KEY_INT    (centralServerPort, 71232);
 	KEY_STRING (gameCode, "SWG");
 	KEY_STRING (gatewayServerIP, "localhost");
 	KEY_INT    (gatewayServerPort, 5001);

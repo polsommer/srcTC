@@ -49,9 +49,9 @@ void ConfigServerGame::install(void)
 	KEY_FLOAT   (startY, 0.0f);
 	KEY_FLOAT   (startZ, 0.0f);
 	startingPosition = Vector(data->startX,data->startY,data->startZ);
-	KEY_INT		(taskManagerPort, 60001);	
+	KEY_INT		(taskManagerPort, 70001);	
 	KEY_STRING	(centralServerAddress, "localhost");
-	KEY_INT		(centralServerPort, 44451);
+	KEY_INT		(centralServerPort, 34451);
 	KEY_STRING  (scriptPath, "../../data/sku.0/sys.server/compiled/game");
 #if defined(WIN32)
 	KEY_STRING  (javaLibPath, "jvm.dll");

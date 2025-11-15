@@ -60,11 +60,11 @@ void ConfigTaskManager::install(void)
 	KEY_BOOL    (verifyClusterName, false);
 	KEY_INT     (gameServerTimeout, 600);
 	KEY_STRING  (gameServiceBindInterface, "");
-	KEY_INT     (gameServicePort, 60001);
-	KEY_INT     (consoleConnectionPort, 60000);
+	KEY_INT     (gameServicePort, 70001);
+	KEY_INT     (consoleConnectionPort, 70000);
 	KEY_STRING  (consoleServiceBindInterface, "");
 	KEY_STRING	(loginServerAddress, "localhost");
-	KEY_INT	    (loginServerTaskServicePort, 44459);
+	KEY_INT	    (loginServerTaskServicePort, 34459);
 	KEY_FLOAT   (maximumLoad, 3.0f);
 	KEY_FLOAT   (loadConnectionServer, 0.5f);
 	KEY_FLOAT   (loadPlanetServer, 0.128f);
