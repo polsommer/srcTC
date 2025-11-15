@@ -1,0 +1,17 @@
+
+add_subdirectory(CentralServer)
+add_subdirectory(ChatServer)
+add_subdirectory(ConnectionServer)
+add_subdirectory(LogServer)
+add_subdirectory(LoginServer)
+add_subdirectory(MetricsServer)
+add_subdirectory(PlanetServer)
+add_subdirectory(ServerConsole)
+add_subdirectory(TaskManager)
+add_subdirectory(TransferServer)
+add_subdirectory(CommoditiesServer)
+
+if(NOT WIN32)
+	add_subdirectory(LoginPing)
+	add_subdirectory(StationPlayersCollector)
+endif()

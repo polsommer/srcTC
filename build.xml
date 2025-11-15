@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SWGBuildSRC" default="swg" basedir="/home/swg/swg-main"
+         xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+    <!-- ========================================================= -->
+    <!-- Star Wars Galaxies Build System - Smart + Fast + Hybrid   -->
+    <!--  Fully Automatic Architecture Detection                   -->
+    <!-- ========================================================= -->
+
+    <!-- Load Properties -->
+    <property file="src/local.properties"/>
+    <property file="src/build.properties"/>
+    <property environment="env"/>
+
+    <!-- Directories -->
+    <property name="build" location="${basedir}/build"/>
+    <property name="exe" location="${basedir}/exe"/>
+    <property name="src" location="${basedir}/src"/>
+    <property name="tools_home" location="${build}/bin"/>
+    <property name="bin_home" location="${exe}/linux/bin"/>
+
+    <!-- ========================================================= -->
+    <!-- Smart System Detection                                    -->
+    <!-- ========================================================= -->
+    <target name="detect_system" description="Detect system architecture and cores.">
+
+        <!-- CPU architecture -->
+        <exec executable="arch" outputproperty="arch"/>
+        <exec executable="lscpu" outputproperty="cpu_vendor" failonerror="false"/>
+        <condition property="is_intel"><contains string="${cpu_vendor}" substring="Intel"/></condition>
+        <condition property="is_amd"><contains string="${cpu_vendor}" substring="AMD"/></condition>
+        <condition property="is_64bit"><contains string="${arch}" substring="64"/></condition>
+        <condition property="BIT_MODE" value="64"><isset property="is_64bit"/></condition>
+        <condition property="BIT_MODE" value="32"><not><isset property="is_64bit"/></not></condition>
+        <exec executable="nproc" outputproperty="nproc"/>
+        <echo message="🧠 CPU: ${cpu_vendor}, Arch: ${arch}, Mode: ${BIT_MODE}-bit, Cores: ${nproc}"/>
+
+    </target>
+
+    <!-- ========================================================= -->
+    <!-- Compiler Setup                                            -->
+    <!-- ========================================================= -->
+    <target name="set_compiler">
+        <property name="cc_compiler" value="gcc"/>
+        <property name="cxx_compiler" value="g++"/>
+        <echo message="🛠 Compiler: ${cc_compiler}/${cxx_compiler}"/>
+    </target>
+
+    <!-- ========================================================= -->
+    <!-- Initialization / Cleaning                                 -->
+    <!-- ========================================================= -->
+    <target name="init">
+        <mkdir dir="${build}"/>
+        <echo message="📁 Initialized build directory: ${build}"/>
+    </target>
+
+    <target name="clean" description="Clean build directory.">
+        <echo message="🧹 Cleaning old build..."/>
+        <delete dir="${build}" failonerror="false"/>
+    </target>
+
+    <!-- ========================================================= -->
+    <!-- Configure & Build                                         -->
+    <!-- ========================================================= -->
+    <target name="configure"
+            depends="init,detect_system,set_compiler"
+            description="Configure CMake intelligently.">
+
+        <echo message="⚙️ Configuring ${BIT_MODE}-bit build..."/>
+
+        <exec executable="cmake" dir="${build}" failonerror="true">
+            <env key="PATH" value="${env.PATH}:${tools_home}"/>
+            <env key="CC" value="${cc_compiler}"/>
+            <env key="CXX" value="${cxx_compiler}"/>
+
+            <arg value="-Wno-dev"/>
+            <arg value="-DCMAKE_BUILD_TYPE=Release"/>
+
+            <!-- Performance Optimization Flags -->
+            <arg value="-DCMAKE_C_FLAGS=-m${BIT_MODE} -O3 -pipe -march=native -flto -fomit-frame-pointer"/>
+            <arg value="-DCMAKE_CXX_FLAGS=-m${BIT_MODE} -O3 -pipe -march=native -flto -fomit-frame-pointer"/>
+
+            <arg value="${src}"/>
+        </exec>
+    </target>
+
+    <target name="build_src" depends="configure" description="Compile SWG sources.">
+        <echo message="🏗️ Building SWG using ${nproc} cores..."/>
+        <exec executable="make" dir="${build}" failonerror="true">
+            <env key="CC" value="${cc_compiler}"/>
+            <env key="CXX" value="${cxx_compiler}"/>
+            <arg value="-j${nproc}"/>
+        </exec>
+    </target>
+
+    <target name="strip_src" unless="${is_debug_build}">
+        <echo message="🪶 Stripping binaries..."/>
+        <exec executable="strip" dir="${build}" failonerror="false">
+            <arg value="-s"/>
+            <arg value="bin/*"/>
+        </exec>
+    </target>
+
+    <!-- ========================================================= -->
+    <!-- Master Target (Fast, Smart, Self-Healing)                 -->
+    <!-- ========================================================= -->
+    <target name="swg" depends="clean,build_src,strip_src"
+            description="Full automatic build.">
+        <echo message="✅ SWG Build Completed Successfully 🚀"/>
+    </target>
+
+</project>
