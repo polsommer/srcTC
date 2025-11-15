@@ -1,18 +1,5 @@
-make sure reservedPort=71232
-reservedPort=71242
-reservedPort=34451
-reservedPort=34452
-reservedPort=70001
-reservedPort=44455
-reservedPort=70002
-reservedPort=71000
-reservedPort=34464
-reservedPort=34463
-reservedPort=34467
-reservedPort=34455
-reservedPort=70002
-reservedPort=34480
-reservedPort=50001
-reservedPort=70000
-reservedPort=34459
-reservedPort=71222 
+     [exec] WARNING:     (6fa54546): Could not find node for this host: 192.168.88.145.
+     [exec] Process name TransferServer not found in task manager configuration
+     [exec] Cluster swg is not ready for players.
+     [exec] CentralServer not launching starting processes because m_taskManager is null
+     [exec] New Metrics Server connection active
