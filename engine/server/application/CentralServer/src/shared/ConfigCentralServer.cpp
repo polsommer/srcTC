@@ -114,7 +114,7 @@ void ConfigCentralServer::install(void)
 	KEY_BOOL   (allowZeroConnectionServerPort, true);
 	KEY_INT    (clusterWideDataLockTimeout, 300); // seconds
 	KEY_STRING (commodityServerServiceBindInterface, "");
-	KEY_INT    (commodityServerServicePort, 44456);
+	KEY_INT    (commodityServerServicePort, 34456);
 	KEY_BOOL   (shutdown, false);
 	KEY_BOOL   (validateBuildVersionNumber, false);
 	KEY_INT    (gameServerConnectionPendingAllocatedSizeLimit, 0);
