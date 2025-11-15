@@ -130,11 +130,12 @@ private:
 		bool operator==(const NodeEntry &) const;
 		bool operator==(const std::string & address) const;
 		
-		std::string   m_address;
-		std::string   m_nodeLabel;
-		int           m_nodeNumber;
-		
-	};
+                std::string   m_address;
+                std::string   m_canonicalAddress;
+                std::string   m_nodeLabel;
+                int           m_nodeNumber;
+
+        };
 	
 	std::map<std::string, ProcessEntry>                           m_processEntries;
 	std::set<std::pair<std::string, unsigned long> >              m_localServers;

@@ -119,7 +119,17 @@ using namespace TaskManagerNameSpace;
 //-----------------------------------------------------------------------
 
 TaskManager::NodeEntry::NodeEntry(const std::string &addr, const std::string &label, int index)
-	: m_address(addr), m_nodeLabel(label), m_nodeNumber(index) {}
+        : m_address(addr),
+          m_canonicalAddress(addr),
+          m_nodeLabel(label),
+          m_nodeNumber(index)
+{
+        if (!addr.empty())
+        {
+                Address resolvedAddress(addr, 0);
+                m_canonicalAddress = resolvedAddress.getHostAddress();
+        }
+}
 
 bool TaskManager::NodeEntry::operator==(const NodeEntry &rhs) const
 {
@@ -128,7 +138,7 @@ bool TaskManager::NodeEntry::operator==(const NodeEntry &rhs) const
 
 bool TaskManager::NodeEntry::operator==(const std::string &address) const
 {
-	return m_address == address;
+        return m_address == address || m_canonicalAddress == address;
 }
 //-----------------------------------------------------------------------
 
@@ -313,14 +323,20 @@ void TaskManager::setupNodeList()
 		result = ConfigFile::getKeyString("TaskManager", buffer, nullptr);
 		if (result)
 		{
-			NodeEntry n(result, buffer, nodeIndex);
-			m_nodeList.push_back(n);;
-			found = true;
-			if (result == localAddress || result == localName)
-			{
-				m_nodeNumber = nodeIndex;
-				m_nodeLabel = buffer;
-			}
+                        NodeEntry n(result, buffer, nodeIndex);
+                        m_nodeList.push_back(n);;
+                        found = true;
+
+                        const bool matchesLocalNode = (n == localAddress) ||
+                                                     (result == localName) ||
+                                                     NetworkHandler::isAddressLocal(result) ||
+                                                     NetworkHandler::isAddressLocal(n.m_canonicalAddress);
+
+                        if (matchesLocalNode)
+                        {
+                                m_nodeNumber = nodeIndex;
+                                m_nodeLabel = buffer;
+                        }
 			++nodeIndex;
 		}
 
