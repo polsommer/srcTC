@@ -55,7 +55,7 @@ unsigned short ConfigServerConsole::getServerPort()
 void ConfigServerConsole::install()
 {
 	KEY_STRING(serverAddress, "127.0.0.1");
-	KEY_INT(serverPort, 61000);
+	KEY_INT(serverPort, 71000);
 }
 
 //-----------------------------------------------------------------------

@@ -31,7 +31,7 @@ void ConfigLogServer::install()
 
 	data = new ConfigLogServer::Data;
 
-	KEY_INT (logServicePort,  44467);
+	KEY_INT (logServicePort,  34467);
 	KEY_STRING (logServiceBindInterface, "");
 	KEY_STRING (loggingServerApiAddress, "localhost");
 	KEY_STRING (loggingServerApiLoginName, "MISCONFIGURED_LOG_SERVER_LOGIN_NAME");

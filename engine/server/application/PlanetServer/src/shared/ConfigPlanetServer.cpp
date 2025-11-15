@@ -32,11 +32,11 @@ void ConfigPlanetServer::install(void)
 	data = new ConfigPlanetServer::Data;
 
 	KEY_STRING (centralServerAddress, "localhost");
-	KEY_INT    (centralServerPort, 44455);
+	KEY_INT    (centralServerPort, 34455);
 	KEY_STRING (sceneID, "default");
 	KEY_INT    (gameServicePort, 0);
-	KEY_INT    (taskManagerPort, 60001);
-	KEY_INT    (watcherServicePort, 60002);
+	KEY_INT    (taskManagerPort, 70001);
+	KEY_INT    (watcherServicePort, 70002);
 	KEY_INT    (maxWatcherConnections, 1);
 	KEY_INT    (watcherOverflowLimit, 1024 * 1024 * 8); // 8MB overflow for CS PlanetWatcher tool
 	KEY_BOOL   (logObjectLoading, false);

@@ -72,16 +72,16 @@ void ConfigCentralServer::install(void)
 
 	data = new ConfigCentralServer::Data;
 
-	KEY_INT    (chatServicePort, 61232);
+	KEY_INT    (chatServicePort, 71232);
 	KEY_INT    (connectionServicePort, 0);
 	KEY_INT    (customerServicePort,   0);
-	KEY_INT    (gameServicePort, 44451);
+	KEY_INT    (gameServicePort, 34451);
 	KEY_STRING (loginServerAddress, "127.0.0.1");
-	KEY_INT    (loginServerPort, 44452);
+	KEY_INT    (loginServerPort, 34452);
 	KEY_STRING (clusterName, "devcluster");
 	KEY_STRING (startPlanet, "tatooine");
-	KEY_INT    (taskManagerPort, 60001);
-	KEY_INT    (planetServicePort, 44455);
+	KEY_INT    (taskManagerPort, 70001);
+	KEY_INT    (planetServicePort, 34455);
 	KEY_INT    (planetServerRestartDelayTimeSeconds, 60);
 	KEY_INT    (connectionServerRestartDelayTimeSeconds, 60);
 	KEY_INT    (chatServerRestartDelayTimeSeconds, 60);
@@ -93,12 +93,12 @@ void ConfigCentralServer::install(void)
 	KEY_STRING (gameServiceBindInterface, "");
 	KEY_STRING (loginServiceBindInterface, "");
 	KEY_STRING (planetServiceBindInterface, "");
-	KEY_INT    (firstPlanetWatcherPort, 60002);
-	KEY_INT    (loginServicePort, 44452);
+	KEY_INT    (firstPlanetWatcherPort, 70002);
+	KEY_INT    (loginServicePort, 34452);
 	KEY_BOOL   (developmentMode, true);
 	KEY_BOOL   (shouldSleep, true);
 	KEY_BOOL   (startPublic, true);
-	KEY_INT    (consoleServicePort, 61000);
+	KEY_INT    (consoleServicePort, 71000);
 	KEY_STRING (consoleServiceBindInterface, "");
 	KEY_INT    (characterCreationTimeout,5*60); // seconds
 	KEY_STRING (chatServerHost, "local");
