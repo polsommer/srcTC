@@ -67,11 +67,11 @@ void ConfigLoginServer::install(void)
 	data = new ConfigLoginServer::Data;
 
 	KEY_INT	(centralServicePort, 34452);
-	KEY_INT	(clientServicePort, 44453);
+	KEY_INT	(clientServicePort, 34453);
 	KEY_INT (clientOverflowLimit, 1024 * 8);
 	KEY_INT	(maxClients, 250);
 	KEY_INT (taskServicePort, 34459);
-	KEY_INT (pingServicePort, 44460);
+	KEY_INT (pingServicePort, 34460);
 	KEY_INT (httpServicePort, 44490);
 	KEY_STRING (DSN, "loginserver");
 	KEY_STRING (privateIpMask, "127.0.0.1");

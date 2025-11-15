@@ -28,7 +28,7 @@ void ConfigLoginPing::install(void)
 	data = new ConfigLoginPing::Data;
 	KEY_BOOL(passthroughMode, false);
 	KEY_STRING(loginServerAddress, "localhost");
-	KEY_INT(loginServerPingServicePort, 44460);
+	KEY_INT(loginServerPingServicePort, 34460);
 	KEY_STRING(rcFileName, "loginPing.cfg");
 }
 
