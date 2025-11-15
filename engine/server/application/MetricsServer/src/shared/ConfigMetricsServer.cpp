@@ -27,7 +27,7 @@ void ConfigMetricsServer::install(void)
 	KEY_STRING(authenticationFileName, "../../exe/shared/metricsAuthentication.cfg");
 	KEY_STRING(clusterName, "swg");
 	KEY_INT(metricsListenerPort, 2200);
-	KEY_INT(metricsServicePort, 44480);
+	KEY_INT(metricsServicePort, 34480);
 	KEY_BOOL(runTestStats, false);
 	KEY_INT(taskManagerPort, 60001);
 	KEY_STRING(metricsServiceBindInterface, "");

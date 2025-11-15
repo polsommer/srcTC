@@ -32,7 +32,7 @@ void ConfigPlanetServer::install(void)
 	data = new ConfigPlanetServer::Data;
 
 	KEY_STRING (centralServerAddress, "localhost");
-	KEY_INT    (centralServerPort, 44455);
+	KEY_INT    (centralServerPort, 34455);
 	KEY_STRING (sceneID, "default");
 	KEY_INT    (gameServicePort, 0);
 	KEY_INT    (taskManagerPort, 60001);
