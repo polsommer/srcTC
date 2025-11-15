@@ -50,9 +50,9 @@ void ConfigServerDatabase::install(void)
 	KEY_STRING  (databasePWD,"gameserver");
 	KEY_STRING  (databaseProtocol,"DEFAULT");
 	KEY_STRING  (centralServerAddress, "localhost");
-	KEY_INT     (centralServerPort, 44451);
+	KEY_INT     (centralServerPort, 34451);
 	KEY_STRING  (commoditiesServerAddress, "localhost");
-	KEY_INT     (commoditiesServerPort, 44457);	//todo: confirm that this is a good port MSH
+	KEY_INT     (commoditiesServerPort, 34457);	//todo: confirm that this is a good port MSH
 	KEY_INT     (taskManagerPort, 60001);
 	KEY_INT     (expectedDBVersion, 271);
 	KEY_BOOL    (correctDBVersionRequired,true);

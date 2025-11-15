@@ -34,7 +34,7 @@ void LoginServerRemoteDebugSetup::install(void)
 		return;
 
 	NetworkSetupData setup;
-	setup.port = 4446;
+	setup.port = 3446;
 	setup.maxConnections = 16;
 	ms_remoteDebugService = new Service(ConnectionAllocator<LoginServerRemoteDebugConnection>(), setup);
 

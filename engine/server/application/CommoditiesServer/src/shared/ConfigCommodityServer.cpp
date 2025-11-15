@@ -33,7 +33,7 @@ void ConfigCommodityServer::install(void)
 
 	KEY_INT     (cmServerServiceBindPort, 4069);
 	KEY_STRING  (cmServerServiceBindInterface, "localhost");
-	KEY_INT     (databaseServerPort, 44457);	//TODO: confirm port
+	KEY_INT     (databaseServerPort, 34457);	//TODO: confirm port
 	KEY_STRING  (databaseServerAddress, "localhost");
 	KEY_STRING  (dsn,"swodb");
 	KEY_STRING  (databaseUID,"dmellencamp");
@@ -51,7 +51,7 @@ void ConfigCommodityServer::install(void)
 	KEY_INT     (databaseOOBDataSizeLimit, 4000);
 	KEY_BOOL    (snapshotDBWrite, true);
 	KEY_BOOL    (showAllDebugInfo, true);
-	KEY_INT     (centralServerPort, 44456);
+	KEY_INT     (centralServerPort, 34456);
 	KEY_STRING  (centralServerAddress, "localhost");
 	KEY_INT     (sleepTimePerFrameMs, 1);
 	KEY_INT     (minutesActiveToUnaccessed, 10080); // 7 days

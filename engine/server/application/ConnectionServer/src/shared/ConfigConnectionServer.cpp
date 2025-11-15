@@ -60,8 +60,8 @@ void ConfigConnectionServer::install(void)
 	KEY_STRING  (centralServerAddress, "localhost");
 	KEY_INT     (centralServerPort, 0);
 	KEY_STRING  (clientServiceBindInterface, "");
-	KEY_INT     (clientServicePortPrivate, 44464);
-	KEY_INT     (clientServicePortPublic, 44463);
+	KEY_INT     (clientServicePortPrivate, 34464);
+	KEY_INT     (clientServicePortPublic, 34463);
 	KEY_INT     (clientOverflowLimit, 1024 * 1024); // 1MB overflow
 	KEY_INT     (gameServicePort, 0);
 	KEY_INT     (pingPort, 0);

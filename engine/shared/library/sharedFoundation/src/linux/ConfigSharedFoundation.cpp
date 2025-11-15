@@ -89,7 +89,7 @@ void ConfigSharedFoundation::install (const Defaults &defaults)
 	KEY_FLOAT(minFrameRate,                    0.0f);
 
 	KEY_BOOL(useRemoteDebug,                  false);
-	KEY_INT(defaultRemoteDebugPort,           4445);
+	KEY_INT(defaultRemoteDebugPort,           3445);
 
 	KEY_BOOL(profilerExpandAllBranches,       false);
 	KEY_BOOL(memoryManagerReportAllocations,  true);

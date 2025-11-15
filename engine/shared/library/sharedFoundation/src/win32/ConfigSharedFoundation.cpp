@@ -105,7 +105,7 @@ void ConfigSharedFoundation::install(const Defaults &defaults)
         LOAD_KEY_FLOAT(minFrameRate,                   1.0f);
 
         LOAD_KEY_BOOL(useRemoteDebug,                  false);
-        LOAD_KEY_INT(defaultRemoteDebugPort,           4445);
+        LOAD_KEY_INT(defaultRemoteDebugPort,           3445);
 
         LOAD_KEY_BOOL(profilerExpandAllBranches,       false);
         LOAD_KEY_BOOL(memoryManagerReportAllocations,  false);
@@ -209,7 +209,7 @@ real ConfigSharedFoundation::getMinFrameRate()
 
 int ConfigSharedFoundation::getDefaultRemoteDebugPort()
 {
-	return ms_defaultRemoteDebugPort.value_or(4445);
+	return ms_defaultRemoteDebugPort.value_or(3445);
 }
 
 // ----------------------------------------------------------------------

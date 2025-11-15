@@ -47,7 +47,7 @@ void SharedRemoteDebugServer::install()
 	ms_installed = true;
 
 	//try to connect to a localhost instance of the remotedebug app
-	RemoteDebugServer::open("127.0.0.1", 4444);
+	RemoteDebugServer::open("127.0.0.1", 3444);
 }
 
 //-------------------------------------------------------------------
